@@ -1,6 +1,6 @@
 class TargetFirmsController < ApplicationController
   def index
-    @target_firms = TargetFirm.all
+    @target_firms = TargetFirm.page(params[:page]).per(10)
 
     render("target_firms/index.html.erb")
   end

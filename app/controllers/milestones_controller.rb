@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
   def index
-    @milestones = Milestone.all
+    @milestones = Milestone.page(params[:page]).per(10)
 
     render("milestones/index.html.erb")
   end

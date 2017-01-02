@@ -1,6 +1,6 @@
 class RecruitingEventsController < ApplicationController
   def index
-    @recruiting_events = RecruitingEvent.all
+    @recruiting_events = RecruitingEvent.page(params[:page]).per(10)
 
     render("recruiting_events/index.html.erb")
   end

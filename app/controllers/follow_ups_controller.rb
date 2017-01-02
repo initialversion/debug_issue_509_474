@@ -1,6 +1,6 @@
 class FollowUpsController < ApplicationController
   def index
-    @follow_ups = FollowUp.all
+    @follow_ups = FollowUp.page(params[:page]).per(10)
 
     render("follow_ups/index.html.erb")
   end

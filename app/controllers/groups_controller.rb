@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
+    @groups = Group.page(params[:page]).per(10)
 
     render("groups/index.html.erb")
   end

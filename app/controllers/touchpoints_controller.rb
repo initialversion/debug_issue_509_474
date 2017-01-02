@@ -1,6 +1,6 @@
 class TouchpointsController < ApplicationController
   def index
-    @touchpoints = Touchpoint.all
+    @touchpoints = Touchpoint.page(params[:page]).per(10)
 
     render("touchpoints/index.html.erb")
   end

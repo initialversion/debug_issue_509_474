@@ -1,6 +1,6 @@
 class VerifiesController < ApplicationController
   def index
-    @verifies = Verify.all
+    @verifies = Verify.page(params[:page]).per(10)
 
     render("verifies/index.html.erb")
   end
