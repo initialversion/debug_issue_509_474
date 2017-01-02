@@ -1,6 +1,9 @@
 class Firm < ApplicationRecord
   # Direct associations
 
+  has_many   :target_firms,
+             :dependent => :destroy
+
   has_many   :follow_ups,
              :dependent => :destroy
 
