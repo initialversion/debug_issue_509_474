@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :groups,
+             :through => :group_members,
+             :source => :group
+
   # Validations
 
   # Include default devise modules. Others available are:
