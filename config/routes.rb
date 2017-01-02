@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Verify resource:
+  # CREATE
+  get "/verifies/new", :controller => "verifies", :action => "new"
+  post "/create_verify", :controller => "verifies", :action => "create"
+
+  # READ
+  get "/verifies", :controller => "verifies", :action => "index"
+  get "/verifies/:id", :controller => "verifies", :action => "show"
+
+  # UPDATE
+  get "/verifies/:id/edit", :controller => "verifies", :action => "edit"
+  post "/update_verify/:id", :controller => "verifies", :action => "update"
+
+  # DELETE
+  get "/delete_verify/:id", :controller => "verifies", :action => "destroy"
+  #------------------------------
+
   # Routes for the Target_firm resource:
   # CREATE
   get "/target_firms/new", :controller => "target_firms", :action => "new"
