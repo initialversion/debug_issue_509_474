@@ -44,3 +44,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Recruiting event has many verifies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Verifies
+      </li>
+
+      <% @recruiting_event.verifies.each do |verify| %>
+        <li class="list-group-item">
+          <a href="/verifies/<%= verify.id %>">
+            <%= verify.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/verifies/<%= verify.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/verifies/<%= verify.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_verify/<%= verify.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
