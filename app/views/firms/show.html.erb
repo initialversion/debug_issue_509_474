@@ -60,6 +60,101 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_contact" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for group -->
+      <div class="form-group">
+        <label for="group" class="control-label">
+          Group
+        </label>
+
+        <input type="text" id="group" name="group" placeholder="Group" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for division -->
+      <div class="form-group">
+        <label for="division" class="control-label">
+          Division
+        </label>
+
+        <input type="text" id="division" name="division" placeholder="Division" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for business_card -->
+      <div class="form-group">
+        <label for="business_card" class="control-label">
+          Business card
+        </label>
+
+        <input type="text" id="business_card" name="business_card" placeholder="Business card" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="control-label">
+          Phone number
+        </label>
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Contact
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -91,6 +186,83 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_touchpoint" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="control-label">
+          Contact
+        </label>
+
+        <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Touchpoint
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -122,6 +294,65 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_follow_up" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for follow_up_type -->
+      <div class="form-group">
+        <label for="follow_up_type" class="control-label">
+          Follow up type
+        </label>
+
+        <input type="text" id="follow_up_type" name="follow_up_type" placeholder="Follow up type" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for touchpoint_id -->
+      <div class="form-group">
+        <label for="touchpoint_id" class="control-label">
+          Touchpoint
+        </label>
+
+        <input type="text" id="touchpoint_id" name="touchpoint_id" placeholder="Touchpoint" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="control-label">
+          Contact
+        </label>
+
+        <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Follow Up
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -153,6 +384,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_target_firm" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for touch_goal -->
+      <div class="form-group">
+        <label for="touch_goal" class="control-label">
+          Touch goal
+        </label>
+
+        <input type="text" id="touch_goal" name="touch_goal" placeholder="Touch goal" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Target Firm
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -184,6 +447,82 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_recruiting_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for start_time -->
+      <div class="form-group">
+        <label for="start_time" class="control-label">
+          Start time
+        </label>
+
+        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for end_time -->
+      <div class="form-group">
+        <label for="end_time" class="control-label">
+          End time
+        </label>
+
+        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for closed -->
+      <div class="checkbox">
+        <label for="closed">
+          <input type="checkbox" id="closed" name="closed" value="1" <%= "checked" if @recruiting_event.closed %>>
+          Closed
+        </label>
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Recruiting Event
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

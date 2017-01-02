@@ -6,6 +6,7 @@ class RecruitingEventsController < ApplicationController
   end
 
   def show
+    @verify = Verify.new
     @recruiting_event = RecruitingEvent.find(params[:id])
 
     render("recruiting_events/show.html.erb")

@@ -66,6 +66,31 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_group_member" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for group_id -->
+      <input type="hidden" name="group_id" value="<%= @group.id %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for is_admin -->
+      <div class="checkbox">
+        <label for="is_admin">
+          <input type="checkbox" id="is_admin" name="is_admin" value="1" <%= "checked" if @group_member.is_admin %>>
+          Is admin
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Group Member
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
