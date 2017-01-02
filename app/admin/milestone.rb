@@ -1,5 +1,7 @@
 ActiveAdmin.register Milestone do
 
+ permit_params :campus_recruiting_start, :closed_events_start, :bankweek, :interviews_start
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
