@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Group #<%= @group.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @group.name %></dd>
+
+      <dt>School</dt>
+      <dd><%= @group.school %></dd>
+
+      <dt>Industry</dt>
+      <dd><%= @group.industry %></dd>
+
+      <dt>Open or closed</dt>
+      <dd><%= @group.open_or_closed %></dd>
+
+      <dt>Hidden or public</dt>
+      <dd><%= @group.hidden_or_public %></dd>
+
+      <dt>Password</dt>
+      <dd><%= @group.password %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/groups" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/groups/<%= @group.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_group/<%= @group.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

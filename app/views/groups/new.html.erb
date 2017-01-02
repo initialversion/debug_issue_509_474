@@ -1,0 +1,80 @@
+<!-- Validation failure messages -->
+<% if @group.errors.any? %>
+  <% @group.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Group</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_group" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @group.name %>">
+      </div>
+
+      <!-- Label and input for school -->
+      <div class="form-group">
+        <label for="school" class="control-label">
+          School
+        </label>
+
+        <input type="text" id="school" name="school" placeholder="School" class="form-control" value="<%= @group.school %>">
+      </div>
+
+      <!-- Label and input for industry -->
+      <div class="form-group">
+        <label for="industry" class="control-label">
+          Industry
+        </label>
+
+        <input type="text" id="industry" name="industry" placeholder="Industry" class="form-control" value="<%= @group.industry %>">
+      </div>
+
+      <!-- Label and input for open_or_closed -->
+      <div class="checkbox">
+        <label for="open_or_closed">
+          <input type="checkbox" id="open_or_closed" name="open_or_closed" value="1" <%= "checked" if @group.open_or_closed %>>
+          Open or closed
+        </label>
+      </div>
+
+      <!-- Label and input for hidden_or_public -->
+      <div class="checkbox">
+        <label for="hidden_or_public">
+          <input type="checkbox" id="hidden_or_public" name="hidden_or_public" value="1" <%= "checked" if @group.hidden_or_public %>>
+          Hidden or public
+        </label>
+      </div>
+
+      <!-- Label and input for password -->
+      <div class="form-group">
+        <label for="password" class="control-label">
+          Password
+        </label>
+
+        <input type="text" id="password" name="password" placeholder="Password" class="form-control" value="<%= @group.password %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Group
+      </button>
+      or
+      <a href="/groups">Cancel</a>
+    </form>
+  </div>
+</div>
