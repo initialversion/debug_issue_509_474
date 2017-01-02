@@ -8,6 +8,10 @@ class Contact < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :touchpoints,
+             :source => :user
+
   # Validations
 
 end

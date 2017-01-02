@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :contacts,
+             :through => :touchpoints,
+             :source => :contact
+
   has_many   :groups,
              :through => :group_members,
              :source => :group
