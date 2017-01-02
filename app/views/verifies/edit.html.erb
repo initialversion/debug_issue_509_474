@@ -33,7 +33,7 @@
           Recruiting event
         </label>
 
-        <input type="text" id="recruiting_event_id" name="recruiting_event_id" placeholder="Recruiting event" class="form-control" value="<%= @verify.recruiting_event_id %>">
+        <%= select_tag(:recruiting_event_id, options_from_collection_for_select(RecruitingEvent.all, :id, :name, @verify.recruiting_event_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
