@@ -1,5 +1,7 @@
 ActiveAdmin.register TargetFirm do
 
+ permit_params :user_id, :firm_id, :touch_goal
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
