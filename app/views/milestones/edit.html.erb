@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @milestone.errors.any? %>
+  <% @milestone.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Milestone #<%= @milestone.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_milestone/<%= @milestone.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for campus_recruiting_start -->
+      <div class="form-group">
+        <label for="campus_recruiting_start" class="control-label">
+          Campus recruiting start
+        </label>
+
+        <input type="text" id="campus_recruiting_start" name="campus_recruiting_start" placeholder="Campus recruiting start" class="form-control" value="<%= @milestone.campus_recruiting_start %>">
+      </div>
+
+      <!-- Label and input for closed_events_start -->
+      <div class="form-group">
+        <label for="closed_events_start" class="control-label">
+          Closed events start
+        </label>
+
+        <input type="text" id="closed_events_start" name="closed_events_start" placeholder="Closed events start" class="form-control" value="<%= @milestone.closed_events_start %>">
+      </div>
+
+      <!-- Label and input for bankweek -->
+      <div class="form-group">
+        <label for="bankweek" class="control-label">
+          Bankweek
+        </label>
+
+        <input type="text" id="bankweek" name="bankweek" placeholder="Bankweek" class="form-control" value="<%= @milestone.bankweek %>">
+      </div>
+
+      <!-- Label and input for interviews_start -->
+      <div class="form-group">
+        <label for="interviews_start" class="control-label">
+          Interviews start
+        </label>
+
+        <input type="text" id="interviews_start" name="interviews_start" placeholder="Interviews start" class="form-control" value="<%= @milestone.interviews_start %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Milestone
+      </button>
+      or
+      <a href="/milestones/<%= @milestone.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

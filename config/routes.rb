@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Milestone resource:
+  # CREATE
+  get "/milestones/new", :controller => "milestones", :action => "new"
+  post "/create_milestone", :controller => "milestones", :action => "create"
+
+  # READ
+  get "/milestones", :controller => "milestones", :action => "index"
+  get "/milestones/:id", :controller => "milestones", :action => "show"
+
+  # UPDATE
+  get "/milestones/:id/edit", :controller => "milestones", :action => "edit"
+  post "/update_milestone/:id", :controller => "milestones", :action => "update"
+
+  # DELETE
+  get "/delete_milestone/:id", :controller => "milestones", :action => "destroy"
+  #------------------------------
+
   # Routes for the Verify resource:
   # CREATE
   get "/verifies/new", :controller => "verifies", :action => "new"
