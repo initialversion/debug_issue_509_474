@@ -1,5 +1,5 @@
 class GroupMembersController < ApplicationController
-  before_action :current_user_must_be_group_member_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_group_member_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_group_member_user
     group_member = GroupMember.find(params[:id])
