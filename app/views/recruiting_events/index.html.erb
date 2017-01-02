@@ -29,7 +29,7 @@
         <td><%= recruiting_event.start_time %></td>
         <td><%= recruiting_event.end_time %></td>
         <td><%= recruiting_event.closed %></td>
-        <td><%= recruiting_event.firm_id %></td>
+        <td><%= recruiting_event.firm.name %></td>
         <td>
           <a href="/recruiting_events/<%= recruiting_event.id %>" class="btn btn-primary">Show</a>
           <a href="/recruiting_events/<%= recruiting_event.id %>/edit" class="btn btn-warning">Edit</a>
