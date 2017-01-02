@@ -22,8 +22,11 @@
         <td><%= group_member.is_admin %></td>
         <td>
           <a href="/group_members/<%= group_member.id %>" class="btn btn-primary">Show</a>
-          <a href="/group_members/<%= group_member.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_group_member/<%= group_member.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == group_member.user %>
+            <a href="/group_members/<%= group_member.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_group_member/<%= group_member.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

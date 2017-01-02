@@ -1,4 +1,14 @@
 class GroupMembersController < ApplicationController
+  before_action :current_user_must_be_group_member_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_group_member_user
+    group_member = GroupMember.find(params[:id])
+
+    unless current_user == group_member.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @group_members = GroupMember.all
 
