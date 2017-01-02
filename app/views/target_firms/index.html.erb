@@ -17,7 +17,7 @@
 
       <% @target_firms.each do |target_firm| %>
       <tr>
-        <td><%= target_firm.user_id %></td>
+        <td><%= target_firm.user.email %></td>
         <td><%= target_firm.firm_id %></td>
         <td><%= target_firm.touch_goal %></td>
         <td>
