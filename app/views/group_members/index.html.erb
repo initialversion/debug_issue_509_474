@@ -18,7 +18,7 @@
       <% @group_members.each do |group_member| %>
       <tr>
         <td><%= group_member.group.name %></td>
-        <td><%= group_member.user_id %></td>
+        <td><%= group_member.user.email %></td>
         <td><%= group_member.is_admin %></td>
         <td>
           <a href="/group_members/<%= group_member.id %>" class="btn btn-primary">Show</a>
