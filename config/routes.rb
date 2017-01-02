@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Group_member resource:
+  # CREATE
+  get "/group_members/new", :controller => "group_members", :action => "new"
+  post "/create_group_member", :controller => "group_members", :action => "create"
+
+  # READ
+  get "/group_members", :controller => "group_members", :action => "index"
+  get "/group_members/:id", :controller => "group_members", :action => "show"
+
+  # UPDATE
+  get "/group_members/:id/edit", :controller => "group_members", :action => "edit"
+  post "/update_group_member/:id", :controller => "group_members", :action => "update"
+
+  # DELETE
+  get "/delete_group_member/:id", :controller => "group_members", :action => "destroy"
+  #------------------------------
+
   # Routes for the Group resource:
   # CREATE
   get "/groups/new", :controller => "groups", :action => "new"

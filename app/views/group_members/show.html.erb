@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Group Member #<%= @group_member.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Group</dt>
+      <dd><%= @group_member.group_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @group_member.user_id %></dd>
+
+      <dt>Is admin</dt>
+      <dd><%= @group_member.is_admin %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/group_members" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/group_members/<%= @group_member.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_group_member/<%= @group_member.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
