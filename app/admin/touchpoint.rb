@@ -1,5 +1,7 @@
 ActiveAdmin.register Touchpoint do
 
+ permit_params :date, :time, :user_id, :contact_id, :firm_id, :description, :location, :notes
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
