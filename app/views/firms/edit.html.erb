@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @firm.errors.any? %>
+  <% @firm.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Firm #<%= @firm.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_firm/<%= @firm.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @firm.name %>">
+      </div>
+
+      <!-- Label and input for industry -->
+      <div class="form-group">
+        <label for="industry" class="control-label">
+          Industry
+        </label>
+
+        <input type="text" id="industry" name="industry" placeholder="Industry" class="form-control" value="<%= @firm.industry %>">
+      </div>
+
+      <!-- Label and input for size -->
+      <div class="form-group">
+        <label for="size" class="control-label">
+          Size
+        </label>
+
+        <input type="text" id="size" name="size" placeholder="Size" class="form-control" value="<%= @firm.size %>">
+      </div>
+
+      <!-- Label and input for process_type -->
+      <div class="form-group">
+        <label for="process_type" class="control-label">
+          Process type
+        </label>
+
+        <input type="text" id="process_type" name="process_type" placeholder="Process type" class="form-control" value="<%= @firm.process_type %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Firm
+      </button>
+      or
+      <a href="/firms/<%= @firm.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

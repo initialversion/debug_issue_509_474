@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Firm #<%= @firm.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @firm.name %></dd>
+
+      <dt>Industry</dt>
+      <dd><%= @firm.industry %></dd>
+
+      <dt>Size</dt>
+      <dd><%= @firm.size %></dd>
+
+      <dt>Process type</dt>
+      <dd><%= @firm.process_type %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/firms" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/firms/<%= @firm.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_firm/<%= @firm.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
