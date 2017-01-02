@@ -51,7 +51,7 @@
           Contact
         </label>
 
-        <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @touchpoint.contact_id %>">
+        <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :first_name, @touchpoint.contact_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for firm_id -->
