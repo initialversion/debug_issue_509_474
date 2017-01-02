@@ -1,5 +1,7 @@
 ActiveAdmin.register FollowUp do
 
+ permit_params :follow_up_type, :touchpoint_id, :user_id, :firm_id, :contact_id, :notes
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
