@@ -26,7 +26,13 @@
       <tr>
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
-        <td><%= contact.firm.name %></td>
+        <td>
+          <% if contact.firm.present? %>
+            <a href="/firms/<%= contact.firm.id %>">
+              <%= contact.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= contact.group %></td>
         <td><%= contact.division %></td>
         <td><%= contact.title %></td>

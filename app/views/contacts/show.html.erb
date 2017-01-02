@@ -12,7 +12,13 @@
       <dd><%= @contact.last_name %></dd>
 
       <dt>Firm</dt>
-      <dd><%= @contact.firm_id %></dd>
+      <dd>
+        <% if @contact.firm.present? %>
+          <a href="/firms/<%= @contact.firm_id %>">
+            <%= @contact.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Group</dt>
       <dd><%= @contact.group %></dd>

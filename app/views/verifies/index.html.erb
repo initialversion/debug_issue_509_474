@@ -16,8 +16,20 @@
 
       <% @verifies.each do |verify| %>
       <tr>
-        <td><%= verify.user.email %></td>
-        <td><%= verify.recruiting_event.name %></td>
+        <td>
+          <% if verify.user.present? %>
+            <a href="/users/<%= verify.user.id %>">
+              <%= verify.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if verify.recruiting_event.present? %>
+            <a href="/recruiting_events/<%= verify.recruiting_event.id %>">
+              <%= verify.recruiting_event.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/verifies/<%= verify.id %>" class="btn btn-primary">Show</a>
           <a href="/verifies/<%= verify.id %>/edit" class="btn btn-warning">Edit</a>

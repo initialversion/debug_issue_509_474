@@ -27,7 +27,13 @@
       <dd><%= @recruiting_event.closed %></dd>
 
       <dt>Firm</dt>
-      <dd><%= @recruiting_event.firm_id %></dd>
+      <dd>
+        <% if @recruiting_event.firm.present? %>
+          <a href="/firms/<%= @recruiting_event.firm_id %>">
+            <%= @recruiting_event.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

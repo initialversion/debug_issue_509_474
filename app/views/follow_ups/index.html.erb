@@ -22,8 +22,20 @@
       <tr>
         <td><%= follow_up.follow_up_type %></td>
         <td><%= follow_up.touchpoint_id %></td>
-        <td><%= follow_up.user.email %></td>
-        <td><%= follow_up.firm.name %></td>
+        <td>
+          <% if follow_up.user.present? %>
+            <a href="/users/<%= follow_up.user.id %>">
+              <%= follow_up.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if follow_up.firm.present? %>
+            <a href="/firms/<%= follow_up.firm.id %>">
+              <%= follow_up.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= follow_up.contact_id %></td>
         <td><%= follow_up.notes %></td>
         <td>

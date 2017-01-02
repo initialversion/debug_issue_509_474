@@ -17,8 +17,20 @@
 
       <% @target_firms.each do |target_firm| %>
       <tr>
-        <td><%= target_firm.user.email %></td>
-        <td><%= target_firm.firm.name %></td>
+        <td>
+          <% if target_firm.user.present? %>
+            <a href="/users/<%= target_firm.user.id %>">
+              <%= target_firm.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if target_firm.firm.present? %>
+            <a href="/firms/<%= target_firm.firm.id %>">
+              <%= target_firm.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= target_firm.touch_goal %></td>
         <td>
           <a href="/target_firms/<%= target_firm.id %>" class="btn btn-primary">Show</a>

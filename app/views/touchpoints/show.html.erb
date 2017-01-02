@@ -12,13 +12,31 @@
       <dd><%= @touchpoint.time %></dd>
 
       <dt>User</dt>
-      <dd><%= @touchpoint.user_id %></dd>
+      <dd>
+        <% if @touchpoint.user.present? %>
+          <a href="/users/<%= @touchpoint.user_id %>">
+            <%= @touchpoint.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Contact</dt>
-      <dd><%= @touchpoint.contact_id %></dd>
+      <dd>
+        <% if @touchpoint.contact.present? %>
+          <a href="/contacts/<%= @touchpoint.contact_id %>">
+            <%= @touchpoint.contact.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Firm</dt>
-      <dd><%= @touchpoint.firm_id %></dd>
+      <dd>
+        <% if @touchpoint.firm.present? %>
+          <a href="/firms/<%= @touchpoint.firm_id %>">
+            <%= @touchpoint.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Description</dt>
       <dd><%= @touchpoint.description %></dd>

@@ -24,9 +24,27 @@
       <tr>
         <td><%= touchpoint.date %></td>
         <td><%= touchpoint.time %></td>
-        <td><%= touchpoint.user.email %></td>
-        <td><%= touchpoint.contact.first_name %></td>
-        <td><%= touchpoint.firm.name %></td>
+        <td>
+          <% if touchpoint.user.present? %>
+            <a href="/users/<%= touchpoint.user.id %>">
+              <%= touchpoint.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if touchpoint.contact.present? %>
+            <a href="/contacts/<%= touchpoint.contact.id %>">
+              <%= touchpoint.contact.first_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if touchpoint.firm.present? %>
+            <a href="/firms/<%= touchpoint.firm.id %>">
+              <%= touchpoint.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= touchpoint.description %></td>
         <td><%= touchpoint.location %></td>
         <td><%= touchpoint.notes %></td>

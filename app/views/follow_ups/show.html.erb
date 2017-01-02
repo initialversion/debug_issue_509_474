@@ -12,10 +12,22 @@
       <dd><%= @follow_up.touchpoint_id %></dd>
 
       <dt>User</dt>
-      <dd><%= @follow_up.user_id %></dd>
+      <dd>
+        <% if @follow_up.user.present? %>
+          <a href="/users/<%= @follow_up.user_id %>">
+            <%= @follow_up.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Firm</dt>
-      <dd><%= @follow_up.firm_id %></dd>
+      <dd>
+        <% if @follow_up.firm.present? %>
+          <a href="/firms/<%= @follow_up.firm_id %>">
+            <%= @follow_up.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Contact</dt>
       <dd><%= @follow_up.contact_id %></dd>
