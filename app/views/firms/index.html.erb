@@ -3,6 +3,134 @@
     Firms
     <a href="/firms/new" class="btn btn-lg btn-success">New Firm</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "firms_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :size_cont, "Size contains" %>
+    <%= f.text_field :size_cont, :class => "form-control", :placeholder => "Size contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :industry_cont, "Industry contains" %>
+    <%= f.text_field :industry_cont, :class => "form-control", :placeholder => "Industry contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :process_type_cont, "Process type contains" %>
+    <%= f.text_field :process_type_cont, :class => "form-control", :placeholder => "Process type contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :contacts_first_name_cont, "Contact first_name contains" %>
+      <%= f.text_field :contacts_first_name_cont, :class => "form-control", :placeholder => "Contact first_name contains" %>
+    </div>
+
+<div class="form-group">
+          <%= f.label :date, "Touchpoint Date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='touchpointsgteqdatePicker'>
+                  <%= f.text_field :touchpoints_date_gteq, :class => "form-control", :placeholder => "Touchpoint Date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='touchpointslteqdatePicker'>
+                  <%= f.text_field :touchpoints_date_lteq, :class => "form-control", :placeholder => "Touchpoint Date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#touchpointsgteqdatePicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#touchpointslteqdatePicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#touchpointsgteqdatePicker').on("dp.change", function (e) {
+                  $('#touchpointslteqdatePicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#touchpointslteqdatePicker').on("dp.change", function (e) {
+                  $('#touchpointsgteqdatePicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+      <%= f.label :follow_ups_follow_up_type_cont, "FollowUp follow_up_type contains" %>
+      <%= f.text_field :follow_ups_follow_up_type_cont, :class => "form-control", :placeholder => "FollowUp follow_up_type contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :recruiting_events_name_cont, "RecruitingEvent name contains" %>
+      <%= f.text_field :recruiting_events_name_cont, :class => "form-control", :placeholder => "RecruitingEvent name contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/firms" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#firms_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

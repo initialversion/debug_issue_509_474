@@ -1,6 +1,7 @@
 class TouchpointsController < ApplicationController
   def index
-    @touchpoints = Touchpoint.page(params[:page]).per(10)
+    @q = Touchpoint.ransack(params[:q])
+    @touchpoints = @q.result(:distinct => true).includes(:user, :contact, :firm).page(params[:page]).per(10)
 
     render("touchpoints/index.html.erb")
   end

@@ -10,7 +10,8 @@ class GroupMembersController < ApplicationController
   end
 
   def index
-    @group_members = current_user.group_members.page(params[:page]).per(10)
+    @q = current_user.group_members.ransack(params[:q])
+      @group_members = @q.result(:distinct => true).includes(:group, :user).page(params[:page]).per(10)
 
     render("group_members/index.html.erb")
   end

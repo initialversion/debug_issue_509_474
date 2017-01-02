@@ -1,6 +1,7 @@
 class VerifiesController < ApplicationController
   def index
-    @verifies = Verify.page(params[:page]).per(10)
+    @q = Verify.ransack(params[:q])
+    @verifies = @q.result(:distinct => true).includes(:user, :recruiting_event).page(params[:page]).per(10)
 
     render("verifies/index.html.erb")
   end

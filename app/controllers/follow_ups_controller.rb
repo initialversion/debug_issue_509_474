@@ -1,6 +1,7 @@
 class FollowUpsController < ApplicationController
   def index
-    @follow_ups = FollowUp.page(params[:page]).per(10)
+    @q = FollowUp.ransack(params[:q])
+    @follow_ups = @q.result(:distinct => true).includes(:user, :firm).page(params[:page]).per(10)
 
     render("follow_ups/index.html.erb")
   end

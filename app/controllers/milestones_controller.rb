@@ -1,6 +1,7 @@
 class MilestonesController < ApplicationController
   def index
-    @milestones = Milestone.page(params[:page]).per(10)
+    @q = Milestone.ransack(params[:q])
+    @milestones = @q.result(:distinct => true).includes().page(params[:page]).per(10)
 
     render("milestones/index.html.erb")
   end

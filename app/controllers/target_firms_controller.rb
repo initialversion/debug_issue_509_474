@@ -1,6 +1,7 @@
 class TargetFirmsController < ApplicationController
   def index
-    @target_firms = TargetFirm.page(params[:page]).per(10)
+    @q = TargetFirm.ransack(params[:q])
+    @target_firms = @q.result(:distinct => true).includes(:user, :firm).page(params[:page]).per(10)
 
     render("target_firms/index.html.erb")
   end
