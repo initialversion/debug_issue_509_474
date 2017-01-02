@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "groups#index"
   # Routes for the Milestone resource:
   # CREATE
   get "/milestones/new", :controller => "milestones", :action => "new"
