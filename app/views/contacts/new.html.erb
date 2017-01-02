@@ -1,0 +1,118 @@
+<!-- Validation failure messages -->
+<% if @contact.errors.any? %>
+  <% @contact.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Contact</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_contact" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @contact.first_name %>">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @contact.last_name %>">
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @contact.firm_id %>">
+      </div>
+
+      <!-- Label and input for group -->
+      <div class="form-group">
+        <label for="group" class="control-label">
+          Group
+        </label>
+
+        <input type="text" id="group" name="group" placeholder="Group" class="form-control" value="<%= @contact.group %>">
+      </div>
+
+      <!-- Label and input for division -->
+      <div class="form-group">
+        <label for="division" class="control-label">
+          Division
+        </label>
+
+        <input type="text" id="division" name="division" placeholder="Division" class="form-control" value="<%= @contact.division %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @contact.title %>">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @contact.photo %>">
+      </div>
+
+      <!-- Label and input for business_card -->
+      <div class="form-group">
+        <label for="business_card" class="control-label">
+          Business card
+        </label>
+
+        <input type="text" id="business_card" name="business_card" placeholder="Business card" class="form-control" value="<%= @contact.business_card %>">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @contact.email %>">
+      </div>
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="control-label">
+          Phone number
+        </label>
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @contact.phone_number %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Contact
+      </button>
+      or
+      <a href="/contacts">Cancel</a>
+    </form>
+  </div>
+</div>
