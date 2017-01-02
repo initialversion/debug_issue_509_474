@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @target_firm.errors.any? %>
+  <% @target_firm.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Target Firm #<%= @target_firm.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_target_firm/<%= @target_firm.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @target_firm.user_id %>">
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @target_firm.firm_id %>">
+      </div>
+
+      <!-- Label and input for touch_goal -->
+      <div class="form-group">
+        <label for="touch_goal" class="control-label">
+          Touch goal
+        </label>
+
+        <input type="text" id="touch_goal" name="touch_goal" placeholder="Touch goal" class="form-control" value="<%= @target_firm.touch_goal %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Target Firm
+      </button>
+      or
+      <a href="/target_firms/<%= @target_firm.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

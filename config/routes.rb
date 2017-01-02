@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Target_firm resource:
+  # CREATE
+  get "/target_firms/new", :controller => "target_firms", :action => "new"
+  post "/create_target_firm", :controller => "target_firms", :action => "create"
+
+  # READ
+  get "/target_firms", :controller => "target_firms", :action => "index"
+  get "/target_firms/:id", :controller => "target_firms", :action => "show"
+
+  # UPDATE
+  get "/target_firms/:id/edit", :controller => "target_firms", :action => "edit"
+  post "/update_target_firm/:id", :controller => "target_firms", :action => "update"
+
+  # DELETE
+  get "/delete_target_firm/:id", :controller => "target_firms", :action => "destroy"
+  #------------------------------
+
   # Routes for the Touchpoint resource:
   # CREATE
   get "/touchpoints/new", :controller => "touchpoints", :action => "new"
