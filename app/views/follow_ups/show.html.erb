@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Follow Up #<%= @follow_up.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Follow up type</dt>
+      <dd><%= @follow_up.follow_up_type %></dd>
+
+      <dt>Touchpoint</dt>
+      <dd><%= @follow_up.touchpoint_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @follow_up.user_id %></dd>
+
+      <dt>Firm</dt>
+      <dd><%= @follow_up.firm_id %></dd>
+
+      <dt>Contact</dt>
+      <dd><%= @follow_up.contact_id %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @follow_up.notes %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/follow_ups" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/follow_ups/<%= @follow_up.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_follow_up/<%= @follow_up.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

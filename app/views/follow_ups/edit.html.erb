@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @follow_up.errors.any? %>
+  <% @follow_up.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Follow Up #<%= @follow_up.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_follow_up/<%= @follow_up.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for follow_up_type -->
+      <div class="form-group">
+        <label for="follow_up_type" class="control-label">
+          Follow up type
+        </label>
+
+        <input type="text" id="follow_up_type" name="follow_up_type" placeholder="Follow up type" class="form-control" value="<%= @follow_up.follow_up_type %>">
+      </div>
+
+      <!-- Label and input for touchpoint_id -->
+      <div class="form-group">
+        <label for="touchpoint_id" class="control-label">
+          Touchpoint
+        </label>
+
+        <input type="text" id="touchpoint_id" name="touchpoint_id" placeholder="Touchpoint" class="form-control" value="<%= @follow_up.touchpoint_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @follow_up.user_id %>">
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @follow_up.firm_id %>">
+      </div>
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="control-label">
+          Contact
+        </label>
+
+        <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @follow_up.contact_id %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @follow_up.notes %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Follow Up
+      </button>
+      or
+      <a href="/follow_ups/<%= @follow_up.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Follow_up resource:
+  # CREATE
+  get "/follow_ups/new", :controller => "follow_ups", :action => "new"
+  post "/create_follow_up", :controller => "follow_ups", :action => "create"
+
+  # READ
+  get "/follow_ups", :controller => "follow_ups", :action => "index"
+  get "/follow_ups/:id", :controller => "follow_ups", :action => "show"
+
+  # UPDATE
+  get "/follow_ups/:id/edit", :controller => "follow_ups", :action => "edit"
+  post "/update_follow_up/:id", :controller => "follow_ups", :action => "update"
+
+  # DELETE
+  get "/delete_follow_up/:id", :controller => "follow_ups", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
