@@ -33,7 +33,7 @@
           Firm
         </label>
 
-        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @target_firm.firm_id %>">
+        <%= select_tag(:firm_id, options_from_collection_for_select(Firm.all, :id, :name, @target_firm.firm_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for touch_goal -->
