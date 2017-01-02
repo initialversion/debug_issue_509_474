@@ -86,7 +86,7 @@
           Firm
         </label>
 
-        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @recruiting_event.firm_id %>">
+        <%= select_tag(:firm_id, options_from_collection_for_select(Firm.all, :id, :name, @recruiting_event.firm_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
