@@ -1,0 +1,99 @@
+<!-- Validation failure messages -->
+<% if @recruiting_event.errors.any? %>
+  <% @recruiting_event.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recruiting Event</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recruiting_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @recruiting_event.name %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @recruiting_event.location %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @recruiting_event.address %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @recruiting_event.date %>">
+      </div>
+
+      <!-- Label and input for start_time -->
+      <div class="form-group">
+        <label for="start_time" class="control-label">
+          Start time
+        </label>
+
+        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="<%= @recruiting_event.start_time %>">
+      </div>
+
+      <!-- Label and input for end_time -->
+      <div class="form-group">
+        <label for="end_time" class="control-label">
+          End time
+        </label>
+
+        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="<%= @recruiting_event.end_time %>">
+      </div>
+
+      <!-- Label and input for closed -->
+      <div class="checkbox">
+        <label for="closed">
+          <input type="checkbox" id="closed" name="closed" value="1" <%= "checked" if @recruiting_event.closed %>>
+          Closed
+        </label>
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @recruiting_event.firm_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Recruiting Event
+      </button>
+      or
+      <a href="/recruiting_events">Cancel</a>
+    </form>
+  </div>
+</div>

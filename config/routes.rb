@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Recruiting_event resource:
+  # CREATE
+  get "/recruiting_events/new", :controller => "recruiting_events", :action => "new"
+  post "/create_recruiting_event", :controller => "recruiting_events", :action => "create"
+
+  # READ
+  get "/recruiting_events", :controller => "recruiting_events", :action => "index"
+  get "/recruiting_events/:id", :controller => "recruiting_events", :action => "show"
+
+  # UPDATE
+  get "/recruiting_events/:id/edit", :controller => "recruiting_events", :action => "edit"
+  post "/update_recruiting_event/:id", :controller => "recruiting_events", :action => "update"
+
+  # DELETE
+  get "/delete_recruiting_event/:id", :controller => "recruiting_events", :action => "destroy"
+  #------------------------------
+
   # Routes for the Firm resource:
   # CREATE
   get "/firms/new", :controller => "firms", :action => "new"

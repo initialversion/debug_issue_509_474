@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Recruiting Event #<%= @recruiting_event.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @recruiting_event.name %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @recruiting_event.location %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @recruiting_event.address %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @recruiting_event.date %></dd>
+
+      <dt>Start time</dt>
+      <dd><%= @recruiting_event.start_time %></dd>
+
+      <dt>End time</dt>
+      <dd><%= @recruiting_event.end_time %></dd>
+
+      <dt>Closed</dt>
+      <dd><%= @recruiting_event.closed %></dd>
+
+      <dt>Firm</dt>
+      <dd><%= @recruiting_event.firm_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/recruiting_events" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/recruiting_events/<%= @recruiting_event.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_recruiting_event/<%= @recruiting_event.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>
+    Recruiting events
+    <a href="/recruiting_events/new" class="btn btn-lg btn-success">New Recruiting event</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Address</th>
+        <th>Date</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Closed</th>
+        <th>Firm</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @recruiting_events.each do |recruiting_event| %>
+      <tr>
+        <td><%= recruiting_event.name %></td>
+        <td><%= recruiting_event.location %></td>
+        <td><%= recruiting_event.address %></td>
+        <td><%= recruiting_event.date %></td>
+        <td><%= recruiting_event.start_time %></td>
+        <td><%= recruiting_event.end_time %></td>
+        <td><%= recruiting_event.closed %></td>
+        <td><%= recruiting_event.firm_id %></td>
+        <td>
+          <a href="/recruiting_events/<%= recruiting_event.id %>" class="btn btn-primary">Show</a>
+          <a href="/recruiting_events/<%= recruiting_event.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_recruiting_event/<%= recruiting_event.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
