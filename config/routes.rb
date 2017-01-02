@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Touchpoint resource:
+  # CREATE
+  get "/touchpoints/new", :controller => "touchpoints", :action => "new"
+  post "/create_touchpoint", :controller => "touchpoints", :action => "create"
+
+  # READ
+  get "/touchpoints", :controller => "touchpoints", :action => "index"
+  get "/touchpoints/:id", :controller => "touchpoints", :action => "show"
+
+  # UPDATE
+  get "/touchpoints/:id/edit", :controller => "touchpoints", :action => "edit"
+  post "/update_touchpoint/:id", :controller => "touchpoints", :action => "update"
+
+  # DELETE
+  get "/delete_touchpoint/:id", :controller => "touchpoints", :action => "destroy"
+  #------------------------------
+
   # Routes for the Recruiting_event resource:
   # CREATE
   get "/recruiting_events/new", :controller => "recruiting_events", :action => "new"
